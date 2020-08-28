@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Author: Torben Windler
+#
 
 myshuf() {
   perl -MList::Util=shuffle -e 'print shuffle(<>);' "$@";
@@ -17,11 +19,10 @@ DATADIR=data
 mkdir -p "${RESULTDIR}"
 mkdir -p "${DATADIR}"
 
-if [ ! -f "${DATADIR}/dbpedia.train" ]
-then
-  wget -c "https://googledrive.com/host/0Bz8a_Dbh9QhbQ2Vic1kxMmZZQ1k" -O "${DATADIR}/dbpedia_csv.tar.gz"
-  tar -xzvf "${DATADIR}/dbpedia_csv.tar.gz" -C "${DATADIR}"
-  cat "${DATADIR}/dbpedia_csv/train.csv" | normalize_text > "${DATADIR}/dbpedia.train"
-  cat "${DATADIR}/dbpedia_csv/test.csv" | normalize_text > "${DATADIR}/dbpedia.test"
-  rm dbpedia_csv.tar.gz
-fi
+echo "normalizing text ..."
+cat "${DATADIR}/test.txt" | normalize_text > "${DATADIR}/prep_test.txt"
+
+echo "predicting ..."
+./fasttext predict "${RESULTDIR}/model.bin" "${DATADIR}/prep_test.txt" > "${RESULTDIR}/predict_test_result"
+
+echo "finished - stored output in ${RESULTDIR} folder"
