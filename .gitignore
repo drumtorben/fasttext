@@ -1,4 +1,4 @@
 .DS_Store
-**data/*
-**result/*
-model.bin
+#**data/*
+#**result/*
+#model.bin

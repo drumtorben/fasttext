@@ -1,5 +1,6 @@
 FROM ubuntu:xenial
-MAINTAINER Mark Kockerbeck <mark@kockerbeck.com>
+MAINTAINER Torben Windler <t.windler@web.de>
+
 RUN apt-get update && apt-get install -y \
         build-essential \
         wget \
