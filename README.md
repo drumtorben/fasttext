@@ -1,10 +1,10 @@
-# fastText Docker [![Build Status](https://travis-ci.org/xeb/fastText-docker.svg?branch=master)](https://travis-ci.org/xeb/fastText-docker) [![Container Status](https://images.microbadger.com/badges/image/xebxeb/fasttext-docker.svg)](https://microbadger.com/images/xebxeb/fasttext-docker "Get your own image badge on microbadger.com")
-Dockerfile and example for Facebook Research's [fastText](https://github.com/facebookresearch/fastText).
+# fastText Docker
+Dockerfile and example for Facebook Research's [fastText](https://fasttext.cc/docs/en/support.html).
 
 # Getting Started
 The quickest way to classify with this fasttext docker container is:
 ```
-git clone
+git clone git@github.com:drumtorben/fasttext.git
 cd fasttext
 make build
 ```
@@ -23,7 +23,7 @@ __label__B another example text
 In the fasttext directory there is a data folder. Split your data in `train.txt` and `test.txt` and put both files here.
 
 # Train, test, predict
-The processes are automated via the Makefile. Make sure you have stored the data in the right location and then do:
+The processes are automated via the Makefile. Make sure you have stored the data in the right location and then just do:
 ```
 make train
 make test
