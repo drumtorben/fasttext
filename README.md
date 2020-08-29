@@ -23,7 +23,7 @@ __label__B another example text
 In the fasttext directory there is a data folder. Split your data in `train.txt` and `test.txt` and put both files here.
 
 # Train, test, predict
-The processes are automated via the Makefile. Make sure you have stored the data in the right location and then just do:
+The processes are automated via the Makefile. Make sure you have stored the data in the right location and then just do one of these commands directly from the fasttext directory:
 ```
 make train
 make test
